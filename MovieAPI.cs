@@ -34,18 +34,25 @@ public class MovieFunctions
 
     private static int GetNextId() => (MovieAPI.Any()) ? MovieAPI.Max(m => m.Id) + 1 : 1;
 
+
     private bool IsApiKeyValid(HttpRequestData req)
     {
-      
-        const string requiredApiKey = "123456";
-        
-        
+         // Read the required API key from the application settings.
+         var requiredApiKey = Environment.GetEnvironmentVariable("ApiKey");
+
+        // If the ApiKey setting is not configured, deny access.
+        if (string.IsNullOrEmpty(requiredApiKey))
+        {
+            return false;
+        }
+            
+        // Check if the request header contains the "X-Api-Key" and if its value matches.
         if (req.Headers.TryGetValues("X-Api-Key", out var values))
         {
             var extractedApiKey = values.FirstOrDefault();
             return requiredApiKey.Equals(extractedApiKey);
         }
-        
+            
         return false;
     }
 
