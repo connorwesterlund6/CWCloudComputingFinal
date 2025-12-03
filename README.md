@@ -1,4 +1,4 @@
-# 🎬 Movie API (Azure Functions Midterm)
+#  Movie API (Azure Functions Midterm)
 
 ## Project Overview
 
@@ -70,7 +70,7 @@ func start
   * **Key:** `X-Api-Key`
   * **Value:** *\<Your-Secret-From-KeyVault\>*
 
-### 🎥 Movies
+###  Movies
 
 | Method | Endpoint | Description |
 | :--- | :--- | :--- |
@@ -80,7 +80,7 @@ func start
 | `PUT` | `/api/MovieAPI/{id}` | Updates an existing movie. Requires a JSON body. |
 | `DELETE` | `/api/MovieAPI/{id}` | Deletes a movie by ID. |
 
-### 🛠️ Maintenance
+###  Maintenance
 
 | Method | Endpoint | Description |
 | :--- | :--- | :--- |
