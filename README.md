@@ -105,4 +105,15 @@ The API logs specific custom events to Azure Application Insights:
   * `ValidationTriggered`: Triggered by the automated Logic App task.
   * `SecurityAlert-InvalidKeyAttempt`: Triggered when an incorrect API Key is used.
 
+###  Response Codes
+
+| Status Code | Description | Occurs When |
+| :--- | :--- | :--- |
+| `200 OK` | Success | The request completed successfully (GET, PUT, PATCH). |
+| `201 Created` | Created | A new movie was successfully added to the database (POST). |
+| `204 No Content`| No Content | A movie was successfully deleted. No body is returned. |
+| `400 Bad Request`| Bad Request | The request body is missing required fields (e.g., "Title" is empty). |
+| `401 Unauthorized`| Unauthorized | The `X-Api-Key` header is missing or incorrect. |
+| `404 Not Found` | Not Found | The requested Movie ID does not exist in the database. |
+
 <!-- end list -->
